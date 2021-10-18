@@ -1,0 +1,7 @@
+{
+  "name": "P.P.L.I",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "P.P.L.I",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
