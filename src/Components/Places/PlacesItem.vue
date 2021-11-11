@@ -1,5 +1,5 @@
 <template>
-    <ion-item :router-link="`/Menu/${place.id}`"> 
+    <ion-item :router-link="`/PlaceDetails/${place.id}`"> 
           <ion-thumbnail slot = "start">
              <ion-img :src="place.image" :alt="place.title"></ion-img>
           </ion-thumbnail>

@@ -11,8 +11,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/Menu/:id',
-    component: () => import('../Pages/menu.vue')
+    path: '/PlaceDetails/:id',
+    component: () => import('../Pages/PlaceDetails.vue')
+  },
+  {
+    path: '/Place/Add/',
+    component: () => import('../Main/AddPlace.vue')
   }
 ]
 
