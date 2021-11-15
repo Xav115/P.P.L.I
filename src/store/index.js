@@ -26,10 +26,16 @@ const store = createStore({
 
             // Get a reference to the database service
             const database = getDatabase(app);
-            for (let i = 1; i < 3; i++) {
+            for (let i = 1; i < 6; i++) {
                 const starCountRef = ref(database, 'Lugares/' + i);
                 onValue(starCountRef, (snapshot) => {
-                    state.places.push(snapshot.val())
+                    if(snapshot.exists()){
+                        console.log(snapshot.val());        
+                        state.places.push(snapshot.val());
+                    }
+                    else{
+                        console.log("no place in position " + i);
+                    }
                 });
             }
         }
