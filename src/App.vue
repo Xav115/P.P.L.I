@@ -11,7 +11,7 @@ import { defineComponent } from 'vue';
 import Menu from './Components/Places/Menu.vue'
 
 export default defineComponent({
-  name: 'App',
+  name: 'PPLI',
   components: {
     IonApp,
     IonRouterOutlet,

@@ -1,7 +1,7 @@
 <template>
   <base-layout :page-title="loadedPlace ? loadedPlace.title : 'Loading...'"
   page-Default-back-link="/Home">
-     <h2 v-if="!loadedPlace"> Not find </h2>
+     <h2 v-if="!loadedPlace"> Page Not Found </h2>
      <place-overview v-else :title="loadedPlace.title" :image="loadedPlace.image" :description="loadedPlace.description" :OficialPage="loadedPlace.OficialPage" :Maps="loadedPlace.Maps"></place-overview>
   </base-layout>
 </template>
@@ -19,7 +19,7 @@ export default {
     }
   },
   computed: {
-    loadedPlace() {
+      loadedPlace() {
       return this.$store.getters.place(this.placeId);
     }
   },
