@@ -1,93 +1,63 @@
 <template>
   <base-layout page-Default-back-link="/Home">
+   <template v-slot:invisible>
+          <ion-button disabled>
+             <ion-icon slot="icon-only" :icon="information"></ion-icon>
+          </ion-button>
+      </template>
+    <!--<ion-card id="card">
+        <ion-img src= "loadedimage" alt="camisa-placeholder"></ion-img>
+    </ion-card> -->
         <ion-card>
-            <ion-button color="dark" mode="ios" size="small" fill="outline" href='mainCam'>Attach Picture</ion-button>
+            <div id="input">
+                <form enctype="multipart/form-data" novalidate>
+                     <ion-input mode="ios" type="file" capture="environment" accept="image/*" @change="Picget($event.target.files)"></ion-input>
+                </form>
+            </div>
         </ion-card>
     <ion-card>
         <ion-item>
-            <ion-textarea autocapitalize="on"></ion-textarea>
+            <ion-label position="floating">Descripción</ion-label>
+            <ion-textarea></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label>Oficial Page:</ion-label>
-            <ion-input autocapitalize="on"></ion-input>
+            <ion-label>Página Oficial:</ion-label>
+            <ion-input></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label>Maps:</ion-label>
-            <ion-input autocapitalize="on"></ion-input>
+            <ion-label>Localización:</ion-label>
+            <ion-input></ion-input>
         </ion-item>
     </ion-card>
         <ion-card>
-            <ion-button color="dark" mode="ios" size="small" fill="outline" @click= "additem">Save</ion-button>
+            <div id="boton">
+                <ion-button color="dark" mode="ios" size="small" fill="outline" @click= "additem()">Save</ion-button>
+            </div>
         </ion-card>
   </base-layout>
 </template>
 
 <script>
-import {IonButton, IonItem, IonLabel} from '@ionic/vue';
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, onValue,update} from "firebase/database";
-
-
+import {IonButton, IonItem, IonLabel, IonTextarea} from '@ionic/vue';
 export default {
   components: { 
     IonButton,
     IonItem,
     IonLabel,
-  },
-  methods: {
-    additem(){
-        console.log("Adding item")
-        const firebaseConfig = {
-                apiKey: "AIzaSyBYKU109adDRyuBEvk2KcuTJDQTOKLiKJc",
-                authDomain: "sacs-bf300.firebaseapp.com",
-                databaseURL: "https://sacs-bf300-default-rtdb.firebaseio.com",
-                projectId: "sacs-bf300",
-                storageBucket: "sacs-bf300.appspot.com",
-                messagingSenderId: "800415669450",
-                appId: "1:800415669450:web:c6158b514c0a38ac896833",
-                measurementId: "G-4TL3GR8LDX"
-            };
-
-            const app = initializeApp(firebaseConfig);
-            const database = getDatabase(app);
-            for (let i = 1; i < 6; i++) {
-                const starCountRef = ref(database, 'Data/' + i);
-                var flag = false;
-                onValue(starCountRef, (snapshot) => {
-                    if(snapshot.exists()){
-                        console.log(snapshot.val()); 
-                        flag =false;       
-                    }
-                    else{
-                        flag =true;
-                        return;
-                    }
-                })
-                console.log(flag);
-                if(flag)
-                {
-                    console.log("new position: " + i);
-                    update(ref(database,'Position/'),{next: i});
-                    break;
-                }
-            }
-
-            // Get a reference to the database service
-            set(ref(database,'Data/' + 3),{
-                Color: "white",
-                Design: "Shein",
-                Pic: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.ceriseshirts.com%2Fproducts%2F5209-2.jpg&f=1&nofb=1",
-                Size: "XL",
-                id: "3"
-            });
-            location.href = 'http://192.168.0.13:5000/move'
-    }
-}
+    IonTextarea
+  }
 };
 </script>
 
 <style>
 #card {
-  size:10000px;
+    background-color: white;
+
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
+#boton{text-align: center;}
+#input{margin-left: 1.5%;}
 </style>

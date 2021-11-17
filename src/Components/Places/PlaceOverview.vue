@@ -1,9 +1,9 @@
 <template>
     <ion-img :src="image" alt="title"></ion-img>
     <h2>{{title}}</h2>
-    <p>Descripcion: {{description}}</p>
-    <p>Pagina Oficial: {{OficialPage}}</p>
-    <p>Localizacion: {{Maps}}</p>
+    <p>Descripción: {{description}}</p>
+    <p>Página Oficial: {{OficialPage}}</p>
+    <p>Localización: {{Maps}}</p>
 </template>
 <script>
 import {IonImg, } from '@ionic/vue';

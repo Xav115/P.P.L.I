@@ -17,6 +17,14 @@ const routes = [
   {
     path: '/Place/Add/',
     component: () => import('../Main/AddPlace.vue')
+  },
+  {
+    path: '/Place/Favorites/',
+    component: () => import('../Pages/Favorites.vue')
+  },
+  {
+    path: '/Place/Settings/',
+    component: () => import('../Main/Settings.vue')
   }
 ]
 

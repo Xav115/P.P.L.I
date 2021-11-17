@@ -1,11 +1,14 @@
 <template>
     <ion-page>
     <ion-header :translucent="true">
-      <ion-toolbar>
+      <ion-toolbar color="success">
         <ion-buttons slot ="start">
             <ion-back-button :default-href="pageDefault"></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ pageTitle}}</ion-title>
+        <ion-buttons slot ="start">
+            <slot name="menu"></slot>
+        </ion-buttons>
+        <ion-title align="center">{{ pageTitle}}</ion-title>
         <ion-buttons slot="end">
           <slot name="actions-end"></slot>
         </ion-buttons>
