@@ -2,7 +2,7 @@
     <ion-page>
     <ion-header :translucent="true">
         <ion-toolbar color="success">
-            <ion-title align="center">Login</ion-title>
+            <ion-title align="center">Iniciar Sesión</ion-title>
         </ion-toolbar>
     </ion-header> 
     <ion-content :fullscreen="true">
