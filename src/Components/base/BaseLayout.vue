@@ -1,6 +1,5 @@
 <template>
     <ion-page>
-    <Menu></Menu>
     <ion-header :translucent="true">
       <ion-toolbar color="success">
         <ion-buttons slot ="start">
@@ -23,7 +22,6 @@
 
 <script>
 import { IonContent, IonButtons, IonBackButton, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import Menu from '../Places/Menu.vue'
 
 export default {
   props: ['pageTitle', "pageDefault"],
@@ -34,8 +32,7 @@ export default {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonBackButton,
-    Menu
+    IonBackButton
   }
 };
 </script>
