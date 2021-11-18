@@ -14,7 +14,7 @@
       <ion-list>
         <ion-item router-link="/Place/Favorites/" >Favoritos</ion-item>
         <!-- <ion-item router-link="/Place/Settings/">Configuración</ion-item> -->
-        <ion-item router-link="/Login/">Logout</ion-item>
+        <ion-item href="/Login/">Logout</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
