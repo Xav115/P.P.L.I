@@ -1,8 +1,8 @@
 <template>
-  <base-layout :page-title="loadedPlace ? loadedPlace.title : 'Loading...'"
+  <base-layout :page-title="loadedPlace ? loadedPlace.Title : 'Loading...'"
   page-Default-back-link="/Home">
      <h2 v-if="!loadedPlace"> Page Not Found </h2>
-     <place-overview v-else :title="loadedPlace.title" :image="loadedPlace.image" :description="loadedPlace.description" :OficialPage="loadedPlace.OficialPage" :Maps="loadedPlace.Maps"></place-overview>
+     <place-overview v-else :Title="loadedPlace.Title" :Pic="loadedPlace.Pic" :Description="loadedPlace.Description" :OficialPage="loadedPlace.OficialPage" :Maps="loadedPlace.Maps"></place-overview>
   </base-layout>
 </template>
 

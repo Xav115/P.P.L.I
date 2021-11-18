@@ -1,10 +1,10 @@
 <template>
-    <ion-item :router-link="`/PlaceDetails/${place.id}`"> 
-          <ion-thumbnail slot = "start">
-             <ion-img :src="place.image" :alt="place.title"></ion-img>
+    <ion-item> 
+          <ion-thumbnail slot = "start" :router-link="`/PlaceDetails/${place.id}`">
+             <ion-img :src="place.Pic" :alt="place.Title"></ion-img>
           </ion-thumbnail>
           <ion-label>
-            {{place.title}} 
+            {{place.Title}} 
           </ion-label>
           <ion-button href='/home' @click="removeitem(place.id)" fill="clear"><ion-icon slot="icon-only" color="danger" :icon="trash"></ion-icon></ion-button>
     </ion-item>

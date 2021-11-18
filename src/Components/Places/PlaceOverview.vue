@@ -1,7 +1,6 @@
 <template>
-    <ion-img :src="image" alt="title"></ion-img>
-    <h2>{{title}}</h2>
-    <p>Descripción: {{description}}</p>
+    <ion-img :src="Pic" alt="title"></ion-img>
+    <p>Descripción: {{Description}}</p>
     <p>Página Oficial: {{OficialPage}}</p>
     <p>Localización: {{Maps}}</p>
 </template>
@@ -9,7 +8,7 @@
 import {IonImg, } from '@ionic/vue';
 
 export default {
-    props: ['title' , 'image' , 'description' , 'OficialPage' , 'Maps'],
+    props: ['Pic' , 'Description' , 'OficialPage' , 'Maps'],
     Components: {
         IonImg
     }
