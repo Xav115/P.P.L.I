@@ -1,7 +1,7 @@
 <template>
   <base-layout page-title="Paseando por la Isla">
       <template v-slot:menu>
-          <ion-button @click="showMenu()">
+          <ion-button @click="showMenu()" id="main">
             <ion-icon slot="icon-only" :icon="menuOutline"></ion-icon>
           </ion-button>
       </template>
