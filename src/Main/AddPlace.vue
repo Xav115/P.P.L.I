@@ -67,7 +67,7 @@
           size="small"
           fill="outline"
           @click="additem()"
-          >Save</ion-button
+          >Guardar</ion-button
         >
       </div>
     </ion-card>

@@ -1,16 +1,27 @@
 <template>
-    <ion-img :src="Pic" alt="title"></ion-img>
-    <p>Descripción: {{Description}}</p>
-    <p>Página Oficial: <ion-router-link :href=OficialPage target="_blank"> {{OficialPage}} </ion-router-link></p>
-    <p>Localización: <ion-router-link :href=Maps target="_blank"> Open in Google Maps </ion-router-link></p>
+  <ion-img :src="Pic" alt="title"></ion-img>
+  <ion-item>
+      <div>{{ Description }}</div>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+        <ion-router-link :href="OficialPage" target="_blank">Página oficial</ion-router-link>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+      <ion-label>
+        <ion-router-link :href="Maps" target="_blank">Abrir en los Mapas de Google</ion-router-link>
+      </ion-label>
+    </ion-item>
 </template>
 <script>
-import {IonImg, } from '@ionic/vue';
+import { IonImg, IonItem } from "@ionic/vue";
 
 export default {
-    props: ['Pic' , 'Description' , 'OficialPage' , 'Maps'],
-    Components: {
-        IonImg
-    }
-}
+  props: ["Pic", "Description", "OficialPage", "Maps"],
+  Components: {
+    IonImg,
+    IonItem,
+  },
+};
 </script>
