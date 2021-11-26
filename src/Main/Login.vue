@@ -6,15 +6,23 @@
         </ion-toolbar>
     </ion-header> 
     <ion-content :fullscreen="true">
-      <ion-label>E-mail</ion-label>
-      <ion-item outline="true">
-        <ion-input></ion-input>
+      <ion-item>
+        <ion-label position="fixed">E-mail:</ion-label>
+        <ion-input
+          type="text"
+          id="Correo"
+        ></ion-input>
       </ion-item>
-      <ion-label>Contraseña</ion-label>
-      <ion-item outline="true">
-        <ion-input type="password"></ion-input>
+      <ion-item>
+        <ion-label position="fixed">Contraseña:</ion-label>
+        <ion-input
+          type="password"
+          id="Password"
+        ></ion-input>
       </ion-item>
-      <ion-button md="ios" href="/Home">Entrar</ion-button>
+      <div align="center">
+      <ion-button  mode="ios" size="small" fill="solid" href="/Home">Entrar</ion-button>
+      </div>
     </ion-content>
   </ion-page>
 </template>
