@@ -26,7 +26,7 @@ const store = createStore({
 
             // Get a reference to the database service
             const database = getDatabase(app);
-            for (let i = 1; i < 6; i++) {
+            for (let i = 1; i < 1000; i++) {
                 const starCountRef = ref(database, 'Lugares/' + i);
                 onValue(starCountRef, (snapshot) => {
                     if(snapshot.exists()){
