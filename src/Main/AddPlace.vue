@@ -66,7 +66,7 @@
           mode="ios"
           size="small"
           fill="outline"
-          @click="additem()"
+          @click="presentAlert()"
           >Guardar</ion-button
         >
       </div>
@@ -75,8 +75,8 @@
 </template>
 
 <script>
-import { IonButton, IonItem, IonLabel, IonTextarea } from "@ionic/vue";
-import { initializeApp } from 'firebase/app';
+import { IonButton, IonItem, IonLabel, IonTextarea, alertController} from "@ionic/vue";
+import { initializeApp } from "firebase/app";
 import * as fdatabase from "firebase/database";
 import * as fcloud from "firebase/storage";
 
@@ -105,6 +105,44 @@ export default {
   },
 
   methods: {
+    async presentAlert() {
+      var string = "Por favor llenar los siguientes espacios: ";
+      var bool = true;
+      if (!this.Pic.length) {
+        string += "Imagen  \n";
+        bool = false;
+      }
+      if (this.Title == null) {
+        string += "Titulo  \n";
+        bool = false;
+      }
+      if (this.Description == null) {
+        string += "Descripción  \n";
+        bool = false;
+      }
+      if (this.Maps == null) {
+        string += "Dirección  \n";
+        bool = false;
+      }
+      if (this.OficialPage == null) {
+        string += "Página Oficial  \n";
+        bool = false;
+      }
+      if (bool) {
+        this.additem();
+      } else {
+        const alert = await alertController.create({
+          cssClass: "my-custom-class",
+          header: "Alert",
+          message: string,
+          buttons: ["OK"],
+        });
+        await alert.present();
+
+        const { role } = await alert.onDidDismiss();
+        console.log("onDidDismiss resolved with role", role);
+      }
+    },
     createApp() {
       const firebaseConfig = {
         apiKey: "AIzaSyAS_OSdcP_SbRKYM1-KEe3mqw3aTEYbeUk",
@@ -145,7 +183,7 @@ export default {
     getPosition(database) {
       let i = 1;
       var id = 1;
-      while (i < 6) {
+      while (i < 1000) {
         console.log(i);
         const DBRef = fdatabase.ref(database, "Lugares/" + i);
         var flag = false;
@@ -166,7 +204,7 @@ export default {
       return id;
     },
 
-    additem() {
+    async additem() {
       console.log("Adding item");
       const firebaseApp = this.createApp();
       const database = fdatabase.getDatabase(firebaseApp);
