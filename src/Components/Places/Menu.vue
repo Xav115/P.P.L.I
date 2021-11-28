@@ -12,9 +12,9 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item router-link="/Place/Favorites/" >Favoritos</ion-item>
         <!-- <ion-item router-link="/Place/Settings/">Configuración</ion-item> -->
-        <ion-item v-if="true" router-link="/Place/Views/">Vistas</ion-item>
+        <ion-item v-if="false" router-link="/Place/Views/">Vistas</ion-item>
+        <ion-item v-else router-link="/Place/Favorites/" >Favoritos</ion-item>
         <ion-item href="/Login/">Salir</ion-item>
       </ion-list>
     </ion-content>
