@@ -6,7 +6,7 @@
           <ion-label>
             {{place.Title}} 
           </ion-label>
-          <ion-button v-if="false" href='/home' @click="removeitem(place.id)" fill="clear"><ion-icon slot="icon-only" color="danger" :icon="trash"></ion-icon></ion-button>
+          <ion-button v-if="Permisos" href='/home' @click="removeitem(place.id)" fill="clear"><ion-icon slot="icon-only" color="danger" :icon="trash"></ion-icon></ion-button>
     </ion-item>
 </template>
 <script>

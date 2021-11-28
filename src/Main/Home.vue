@@ -6,8 +6,11 @@
           </ion-button>
       </template>
       <template v-slot:actions-end>
-          <ion-button v-if="true" router-link="/Place/Add/">
+          <ion-button v-if="Permisos" router-link="/Place/Add/">
             <ion-icon slot="icon-only" :icon="add"></ion-icon>
+          </ion-button>
+          <ion-button v-else disabled>
+             <ion-icon slot="icon-only" :icon="information"></ion-icon>
           </ion-button>
       </template>
       <Placeslist :places="places"></Placeslist>

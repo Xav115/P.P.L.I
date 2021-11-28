@@ -12,6 +12,11 @@
         <ion-buttons slot="end">
           <slot name="actions-end"></slot>
         </ion-buttons>
+
+        <ion-buttons slot="end">
+          <slot name="invisible"></slot>
+        </ion-buttons>
+
       </ion-toolbar>
     </ion-header> 
     <ion-content :fullscreen="true">
