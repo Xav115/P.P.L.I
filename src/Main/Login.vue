@@ -7,7 +7,7 @@
     </ion-header> 
     <ion-content :fullscreen="true">
       <ion-item>
-        <ion-label position="fixed">E-mail:</ion-label>
+        <ion-label position="fixed">Usuario:</ion-label>
         <ion-input
           type="text"
           id="Correo"

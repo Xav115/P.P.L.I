@@ -28,6 +28,10 @@ const routes = [
     component: () => import('../Pages/Favorites.vue')
   },
   {
+    path: '/Place/Views/',
+    component: () => import('../Pages/Views.vue')
+  },
+  {
     path: '/Place/Settings/',
     component: () => import('../Main/Settings.vue')
   }

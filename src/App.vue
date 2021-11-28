@@ -1,6 +1,6 @@
 <template>
   <ion-app>
-    <Menu></Menu>
+    <Menu  v-if='this.$route.path === "/Home"'></Menu>
     <ion-router-outlet id="main"/>
   </ion-app>
 </template>
