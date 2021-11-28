@@ -12,7 +12,12 @@
       <ion-label>
         <ion-router-link :href="Maps" target="_blank">Abrir en los Mapas de Google</ion-router-link>
       </ion-label>
-    </ion-item>
+  </ion-item>
+  <ion-item>
+      <ion-label>
+        Cantidad de visitas: {{Visitas}}
+      </ion-label>
+  </ion-item>
 </template>
 <script>
 import { IonImg, IonItem } from "@ionic/vue";
