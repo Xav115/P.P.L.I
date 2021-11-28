@@ -6,7 +6,7 @@
          <ion-avatar slot="start">
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
          </ion-avatar>
-         <ion-label>Admin</ion-label>
+         <ion-label>{{user}}</ion-label>
         </ion-item>
       </ion-toolbar>
     </ion-header>
@@ -14,7 +14,8 @@
       <ion-list>
         <ion-item router-link="/Place/Favorites/" >Favoritos</ion-item>
         <!-- <ion-item router-link="/Place/Settings/">Configuración</ion-item> -->
-        <ion-item href="/Login/">Logout</ion-item>
+        <ion-item v-if="true" router-link="/Place/Views/">Vistas</ion-item>
+        <ion-item href="/Login/">Salir</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
