@@ -3,7 +3,7 @@
     <ion-header :translucent="true">
       <ion-toolbar color="success">
         <ion-buttons slot ="start">
-            <ion-back-button :default-href="pageDefault"></ion-back-button>
+            <ion-back-button :default-href="pageDefaultBackLink"></ion-back-button>
         </ion-buttons>
         <ion-buttons slot ="start">
             <slot name="menu"></slot>
@@ -29,7 +29,7 @@
 import { IonContent, IonButtons, IonBackButton, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default {
-  props: ['pageTitle', "pageDefault"],
+  props: ['pageTitle', "pageDefaultBackLink"],
   components: {
     IonContent,
     IonButtons,
