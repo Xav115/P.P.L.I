@@ -36,6 +36,7 @@
         <ion-textarea
           type="text"
           id="Description"
+          autoGrow="true"
           autocapitalize="on"
           @change="Descriptionget($event.target.value)"
         ></ion-textarea>
