@@ -6,6 +6,9 @@
         </ion-toolbar>
     </ion-header> 
     <ion-content :fullscreen="true">
+      <ion-item v-if="true">
+        <ion-label color="danger">A ingresado un usuario o contraseña incorrecta</ion-label>
+      </ion-item>
       <ion-item>
         <ion-label position="fixed">Usuario:</ion-label>
         <ion-input
