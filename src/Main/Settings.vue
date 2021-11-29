@@ -1,5 +1,5 @@
 <template>
-  <base-layout page-Default-back-link="/Home">
+  <base-layout page-default-back-link="/Home">
       <template v-slot:invisible>
           <ion-button disabled>
              <ion-icon slot="icon-only" :icon="information"></ion-icon>
