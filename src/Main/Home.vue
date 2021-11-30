@@ -6,11 +6,7 @@
           </ion-button>
       </template>
       <template v-slot:actions-end>
-<<<<<<< Updated upstream
-          <ion-button v-if="true" router-link="/Place/Add/">
-=======
           <ion-button v-if="this.Permiso" router-link="/Place/Add/">
->>>>>>> Stashed changes
             <ion-icon slot="icon-only" :icon="add"></ion-icon>
           </ion-button>
           <ion-button v-else disabled>
