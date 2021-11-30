@@ -2,9 +2,19 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\Components",
+    "\\src\\Components\\base",
+    "\\src\\Components\\Places",
+    "\\src\\Main",
+    "\\src\\Pages",
     "\\src\\router",
-    "\\src\\views"
+    "\\src\\store",
+    "\\tests"
   ],
-  "SelectedNode": "\\src\\router\\index.js",
+<<<<<<< Updated upstream
+  "SelectedNode": "\\src\\Main\\AddPlace.vue",
+=======
+  "SelectedNode": "\\src\\Pages\\PlaceDetails.vue",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

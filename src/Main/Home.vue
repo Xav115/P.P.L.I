@@ -6,7 +6,11 @@
           </ion-button>
       </template>
       <template v-slot:actions-end>
+<<<<<<< Updated upstream
           <ion-button v-if="true" router-link="/Place/Add/">
+=======
+          <ion-button v-if="this.Permiso" router-link="/Place/Add/">
+>>>>>>> Stashed changes
             <ion-icon slot="icon-only" :icon="add"></ion-icon>
           </ion-button>
           <ion-button v-else disabled>
@@ -29,15 +33,24 @@ export default {
     IonIcon,
   },
   data() {
-    return { add, menuOutline};
+      return {
+          add,
+          menuOutline,
+          Permiso: this.$route.params.Permiso
+      };
   },
   methods: {
     showMenu() {
         menuController.open("app-menu")
-    },
+      },
+
+      showPermiso() {
+          console.log(this.$route.params.Permiso)
+      }
   },
   computed: {
-    places() {
+      places() {
+          this.showPermiso()
       return this.$store.getters.places;
     }
   }
