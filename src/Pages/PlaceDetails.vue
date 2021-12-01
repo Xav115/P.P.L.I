@@ -4,7 +4,7 @@
     page-default-back-link="/Home"
   >
     <template v-slot:fav>
-      <ion-button @click="removeitem(loadedCloth.id)" fill="clear">
+      <ion-button @click="AddToFavorite()" fill="clear">
         <ion-icon v-if="selected" slot="icon-only" :icon="star"></ion-icon>
         <ion-icon v-else slot="icon-only" :icon="starOutline"></ion-icon>
       </ion-button>
