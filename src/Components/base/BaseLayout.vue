@@ -12,6 +12,9 @@
         <ion-buttons slot="end">
           <slot name="actions-end"></slot>
         </ion-buttons>
+        <ion-buttons slot="end">
+          <slot name="fav"></slot>
+        </ion-buttons>
 
         <ion-buttons slot="end">
           <slot name="invisible"></slot>
