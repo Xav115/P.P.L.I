@@ -13,7 +13,8 @@ const routes = [
   },
   {
     path: '/Home',
-    component: Home
+      component: Home,
+       data: () => import('../Main/Login.vue')
   },
   {
     path: '/PlaceDetails/:id',
@@ -26,10 +27,6 @@ const routes = [
   {
     path: '/Place/Favorites/',
     component: () => import('../Pages/Favorites.vue')
-  },
-  {
-    path: '/Place/Settings/',
-    component: () => import('../Main/Settings.vue')
   }
 ]
 

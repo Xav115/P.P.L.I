@@ -7,7 +7,7 @@
     </ion-header>
     <ion-content :fullscreen="true">
       
-      <ion-item-divider v-if="true">
+      <ion-item-divider v-if="error">
         <ion-label color="danger"
           >A ingresado un usuario o contraseña incorrecta</ion-label
         >
@@ -35,7 +35,6 @@
           size="small"
           fill="solid"
           @click="loadusers()"
-          href="/Home"
           >Entrar</ion-button
         >
       </div>
@@ -50,7 +49,6 @@ import {
   IonHeader,
   IonPage,
   IonInput,
-  alertController,
 } from "@ionic/vue";
 import { initializeApp } from "firebase/app";
 import * as fdatabase from "firebase/database";
@@ -71,6 +69,8 @@ export default {
       Usuario: null,
       Contrasena: null,
       Permiso: false,
+      flag: false,
+      error: false
     };
   },
   methods: {
@@ -87,34 +87,42 @@ export default {
       const firebaseApp = this.createApp();
       const database = fdatabase.getDatabase(firebaseApp);
       for (let i = 1; i <= 3; i++) {
-        const starCountRef = fdatabase.ref(database, "Usuarios/" + i);
-        await fdatabase.onValue(starCountRef, (snapshot) => {
-          if (snapshot.exists()) {
-            console.log(snapshot.val().Usuario);
-            if (
-              this.Usuario == snapshot.val().Usuario &&
-              this.Contrasena == snapshot.val().Contrasena
-            ) {
-              this.Permiso = snapshot.val().Permiso;
-              location.href = "/Home";
-              console.log("here");
-            }
-          } else {
-            console.log("database not reached");
-          }
-        });
-      }
-      const alert = await alertController.create({
-        cssClass: "my-custom-class",
-        header: "Alert",
-        message: "contrasena o usuario incorecto",
-        buttons: ["OK"],
-      });
-      await alert.present();
+        const dbRef = fdatabase.ref(database, "Usuarios/" + i);
+          await fdatabase.onValue(dbRef, (snapshot) => {
+              if (snapshot.exists()) {
+                  console.log(snapshot.val().Usuario);
+                  if (
+                      this.Usuario == snapshot.val().Usuario &&
+                      this.Contrasena == snapshot.val().Contrasena
+                  ) {
+                      this.Permiso = snapshot.val().Permiso;
+                      console.log(this.Permiso);
+                      fdatabase.update(fdatabase.ref(database), { User:  this.Usuario })
+                      if (this.Usuario === "Administrador") {
+                          fdatabase.update(fdatabase.ref(database), { Permiso: true })
+                      }
+                      else {
+                          fdatabase.update(fdatabase.ref(database), { Permiso: false })
+                      }
+                      location.href = "/Home";
+                      this.flag = true;
+                  }
+                  else {
+                      console.log("database not reached");
+                  }
+              }
+          });
 
-      const { role } = await alert.onDidDismiss();
-      console.log("onDidDismiss resolved with role", role);
-    },
+          if (this.flag) {
+              this.error = false;
+          }
+          else {
+              this.error = true;
+          }
+      }
+        
+      },
+
 
     createApp() {
       const firebaseConfig = {

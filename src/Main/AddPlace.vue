@@ -228,6 +228,7 @@ export default {
         Maps: this.Maps,
         OficialPage: this.OficialPage,
         id: id.toString(),
+        visitas: 0,
       });
       fcloud.getDownloadURL(storageRef).then(function (downloadURL) {
         fdatabase.update(fdatabase.ref(database, "Lugares/" + id), {

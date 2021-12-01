@@ -23,7 +23,7 @@
 import { IonImg, IonItem } from "@ionic/vue";
 
 export default {
-  props: ["Pic", "Description", "OficialPage", "Maps"],
+  props: ["Pic", "Description", "OficialPage", "Maps", "Visitas"],
   Components: {
     IonImg,
     IonItem,
