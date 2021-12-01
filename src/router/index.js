@@ -13,7 +13,8 @@ const routes = [
   },
   {
     path: '/Home',
-    component: Home
+      component: Home,
+       data: () => import('../Main/Login.vue')
   },
   {
     path: '/PlaceDetails/:id',

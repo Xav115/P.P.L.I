@@ -6,7 +6,7 @@
           </ion-button>
       </template>
       <template v-slot:actions-end>
-          <ion-button v-if="this.Permiso" router-link="/Place/Add/">
+          <ion-button v-if="Permiso" router-link="/Place/Add/">
             <ion-icon slot="icon-only" :icon="add"></ion-icon>
           </ion-button>
           <ion-button v-else disabled>
@@ -21,9 +21,11 @@
 import {IonButton, IonIcon, menuController} from '@ionic/vue';
 import { add, menuOutline } from 'ionicons/icons';
 import Placeslist from "../Components/Places/Placeslist.vue";
+import * as fdatabase from "firebase/database";
+import { initializeApp } from "firebase/app";
 
 export default {
-  components: { 
+    components: { 
     Placeslist,
     IonButton,
     IonIcon,
@@ -32,21 +34,45 @@ export default {
       return {
           add,
           menuOutline,
-          Permiso: this.$route.params.Permiso
+          Permiso: false,
       };
   },
   methods: {
-    showMenu() {
+      showMenu() {
         menuController.open("app-menu")
       },
 
-      showPermiso() {
-          console.log(this.$route.params.Permiso)
-      }
+      checkPermiso() {
+
+          const firebaseApp = this.createApp();
+          const database = fdatabase.getDatabase(firebaseApp);
+          const DBRef = fdatabase.ref(database, "Permiso/")
+          fdatabase.onValue(DBRef, (snapshot) => {
+              if (snapshot.exists()) {
+                  this.Permiso = snapshot.val();
+                  console.log(this.Permiso);
+              }
+          });
+      },
+
+      createApp() {
+          const firebaseConfig = {
+              apiKey: "AIzaSyAS_OSdcP_SbRKYM1-KEe3mqw3aTEYbeUk",
+              authDomain: "ppli-755d5.firebaseapp.com",
+              databaseURL: "https://ppli-755d5-default-rtdb.firebaseio.com",
+              projectId: "ppli-755d5",
+              storageBucket: "ppli-755d5.appspot.com",
+              messagingSenderId: "178455523705",
+              appId: "1:178455523705:web:56bcc3b7faa4deffe77fa8",
+              measurementId: "G-4QMQ249CJR",
+          };
+          const firebaseApp = initializeApp(firebaseConfig);
+          return firebaseApp;
+      },
   },
-  computed: {
+        computed: {
       places() {
-          this.showPermiso()
+      this.checkPermiso();
       return this.$store.getters.places;
     }
   }
