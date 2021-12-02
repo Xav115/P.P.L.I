@@ -1,5 +1,10 @@
 <template>
-  <base-layout page-title="Añadir lugar" page-Default-back-link="/Home">
+  <base-layout page-title="Añadir lugar">
+    <template v-slot:back>
+      <ion-button href="/Home" fill="clear">
+        back
+      </ion-button>
+    </template>
     <template v-slot:invisible>
       <ion-button disabled>
         <ion-icon slot="icon-only" :icon="information"></ion-icon>

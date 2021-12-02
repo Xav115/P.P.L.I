@@ -1,8 +1,11 @@
 <template>
   <base-layout
-    :page-title="loadedPlace ? loadedPlace.Title : 'Loading...'"
-    page-default-back-link="/Home"
-  >
+    :page-title="loadedPlace ? loadedPlace.Title : 'Loading...'">
+    <template v-slot:back>
+      <ion-button href="/Home" fill="clear">
+        back
+      </ion-button>
+    </template>
     <template v-slot:fav>
       <ion-button @click="AddToFavorite()" fill="clear">
         <ion-icon v-if="selected" slot="icon-only" :icon="star"></ion-icon>
