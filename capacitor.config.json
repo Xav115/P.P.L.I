@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "P.P.L.I",
+	"appId": "com.XaFranc.starter",
+	"appName": "Paseando Por La Isla",
 	"webDir": "dist",
 	"bundledWebRuntime": false
 }

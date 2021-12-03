@@ -2,7 +2,7 @@
     <base-layout :page-title="loadedPlace ? loadedPlace.Title : 'Loading...'">
         <template v-slot:back>
             <ion-button href="/Home" fill="clear">
-                back
+                <ion-icon slot="icon-only" :icon="arrowBack"></ion-icon>
             </ion-button>
         </template>
         <template v-slot:fav>
@@ -26,7 +26,7 @@
 <script>
     import PlaceOverview from "../Components/Places/PlaceOverview.vue";
     import { IonIcon } from "@ionic/vue";
-    import { star, starOutline } from "ionicons/icons";
+    import { star, starOutline, arrowBack } from "ionicons/icons";
     import { initializeApp } from "firebase/app";
     import * as fdatabase from "firebase/database";
 
@@ -40,6 +40,7 @@
                 placeId: this.$route.params.id,
                 star,
                 starOutline,
+                arrowBack,
                 selected: false,
                 user: "Administrador"
             };

@@ -2,7 +2,7 @@
   <base-layout page-title="Añadir lugar">
     <template v-slot:back>
       <ion-button href="/Home" fill="clear">
-        back
+        <ion-icon slot="icon-only" :icon="arrowBack"></ion-icon>
       </ion-button>
     </template>
     <template v-slot:invisible>
@@ -10,9 +10,6 @@
         <ion-icon slot="icon-only" :icon="information"></ion-icon>
       </ion-button>
     </template>
-    <!--<ion-card id="card">
-        <ion-img src= "loadedimage" alt="camisa-placeholder"></ion-img>
-    </ion-card> -->
     <ion-card>
       <div id="input">
         <form enctype="multipart/form-data" novalidate>
@@ -81,7 +78,8 @@
 </template>
 
 <script>
-import { IonButton, IonItem, IonLabel, IonTextarea, alertController} from "@ionic/vue";
+import { IonButton, IonItem, IonLabel, IonTextarea, alertController, IonIcon} from "@ionic/vue";
+import { arrowBack } from 'ionicons/icons';
 import { initializeApp } from "firebase/app";
 import * as fdatabase from "firebase/database";
 import * as fcloud from "firebase/storage";
@@ -92,9 +90,11 @@ export default {
     IonItem,
     IonLabel,
     IonTextarea,
+    IonIcon
   },
   data() {
     return {
+      arrowBack,
       Title: null,
       Description: null,
       Pic: [],
