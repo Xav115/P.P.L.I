@@ -68,8 +68,8 @@ export default {
       usuariodb: [],
       Usuario: null,
       Contrasena: null,
-      Permiso: false,
-      flag: false,
+        Permiso: false,
+        flag: true,
       error: false
     };
   },
@@ -104,11 +104,13 @@ export default {
                       else {
                           fdatabase.update(fdatabase.ref(database), { Permiso: false })
                       }
-                      location.href = "/Home";
                       this.flag = true;
+                      this.error = false;
+                      location.href = "/Home";
+                      
                   }
                   else {
-                      console.log("database not reached");
+                      this.flag = false;
                   }
               }
           });

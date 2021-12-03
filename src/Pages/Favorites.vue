@@ -10,22 +10,22 @@
         <ion-icon slot="icon-only" :icon="information"></ion-icon>
       </ion-button>
     </template>
-    <Placeslist :places="places"></Placeslist>
+    <Favoritelist :places="favorites"></Favoritelist>
   </base-layout>
 </template>
 
 <script>
-import Placeslist from "../Components/Places/Placeslist.vue";
+import Favoritelist from "../Components/Places/Favoritelist.vue";
 import { IonButton } from "@ionic/vue";
 
 export default {
   components: { 
-    Placeslist,
+    Favoritelist,
     IonButton
   },
   computed: {
-    places() {
-      return this.$store.getters.places;
+    favorites() {
+      return this.$store.getters.favorites;
     }
   }
 };

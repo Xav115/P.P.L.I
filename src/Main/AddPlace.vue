@@ -222,7 +222,7 @@ export default {
 
       // 'file' comes from the Blob or File API
       console.log(this.Pic[0]);
-      fcloud.uploadBytes(storageRef, this.Pic[0]).then((snapshot) => {
+      await fcloud.uploadBytes(storageRef, this.Pic[0]).then((snapshot) => {
         console.log(snapshot);
         //put(snapshot, image);
       });
@@ -233,13 +233,14 @@ export default {
         Maps: this.Maps,
         OficialPage: this.OficialPage,
         id: id.toString(),
-        visitas: 0,
+        Visitas: 0,
       });
-      fcloud.getDownloadURL(storageRef).then(function (downloadURL) {
+      await fcloud.getDownloadURL(storageRef).then(function (downloadURL) {
         fdatabase.update(fdatabase.ref(database, "Lugares/" + id), {
           Pic: downloadURL,
         });
       });
+        location.href = "/Home";
     },
   },
 };

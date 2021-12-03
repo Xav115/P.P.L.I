@@ -3,18 +3,11 @@
     "",
     "\\src",
     "\\src\\Components",
-    "\\src\\Components\\base",
     "\\src\\Components\\Places",
     "\\src\\Main",
     "\\src\\Pages",
-    "\\src\\router",
-    "\\src\\store",
-    "\\tests"
+    "\\src\\store"
   ],
-<<<<<<< Updated upstream
-  "SelectedNode": "\\src\\Main\\AddPlace.vue",
-=======
   "SelectedNode": "\\src\\Pages\\PlaceDetails.vue",
->>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

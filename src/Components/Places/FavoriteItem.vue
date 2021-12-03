@@ -1,17 +1,15 @@
 <template>
     <ion-item>
-        <ion-thumbnail @click="updateVisit" slot="start" :router-link="`/PlaceDetails/${place.id}`">
+        <ion-thumbnail slot="start">
             <ion-img :src="place.Pic" :alt="place.Title"></ion-img>
         </ion-thumbnail>
         <ion-label>
             {{place.Title}}
         </ion-label>
-        <ion-button v-if="checkPermiso()" href='/home' @click="removeitem(place.id)" fill="clear"><ion-icon slot="icon-only" color="danger" :icon="trash"></ion-icon></ion-button>
     </ion-item>
 </template>
 <script>
-    import { IonImg, IonThumbnail, IonLabel, IonItem, IonIcon } from '@ionic/vue';
-    import { trash } from 'ionicons/icons';
+    import { IonImg, IonThumbnail, IonLabel, IonItem } from '@ionic/vue';
     import * as fdatabase from "firebase/database";
     import { initializeApp } from "firebase/app";
 
@@ -22,11 +20,9 @@
             IonImg,
             IonThumbnail,
             IonLabel,
-            IonIcon
         },
         data() {
             return {
-                trash,
                 Permiso: false
             };
         },
